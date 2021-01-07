@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: XP00Mandl - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\XuPin\LOCALS~1\Temp\RSP1C2.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/XP00Mandl.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\课程文档\计算机图形学\XP00Mandl\XP00MandlView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\XuPin\LOCALS~1\Temp\RSP1C2.tmp" 
+Creating temporary file "C:\DOCUME~1\XuPin\LOCALS~1\Temp\RSP1C3.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/XP00Mandl.pdb" /debug /machine:I386 /out:"Debug/XP00Mandl.exe" /pdbtype:sept 
+".\Debug\Complex.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\XP00Mandl.obj"
+".\Debug\XP00MandlDoc.obj"
+".\Debug\XP00MandlView.obj"
+".\Debug\XP00Mandl.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\XuPin\LOCALS~1\Temp\RSP1C3.tmp"
+<h3>Output Window</h3>
+Compiling...
+XP00MandlView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+XP00Mandl.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

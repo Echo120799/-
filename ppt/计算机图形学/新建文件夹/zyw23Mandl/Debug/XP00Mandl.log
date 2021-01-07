@@ -1,0 +1,4 @@
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  XP00MandlView.cpp
+d:\ppt\计算机图形学\xp00mandl\xp00mandlview.cpp(99): warning C4101: “n”: 未引用的局部变量
+  XP00Mandl.vcxproj -> D:\ppt\计算机图形学\XP00Mandl\.\Debug\XP00Mandl.exe
