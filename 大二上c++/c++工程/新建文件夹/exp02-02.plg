@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: exp02-02 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSP3A7F.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/exp02-02.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\c++\新建文件夹\exp02-02.c"
+]
+Creating command line "cl.exe @C:\Users\lenovo\AppData\Local\Temp\RSP3A7F.tmp" 
+<h3>Output Window</h3>
+Compiling...
+exp02-02.c
+
+
+
+<h3>Results</h3>
+exp02-02.obj - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

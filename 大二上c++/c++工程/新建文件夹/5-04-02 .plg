@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 5-04-02  - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSP946C.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/5-04-02 .pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\c++\新建文件夹\5-04-02 .c"
+]
+Creating command line "cl.exe @C:\Users\lenovo\AppData\Local\Temp\RSP946C.tmp" 
+Creating temporary file "C:\Users\lenovo\AppData\Local\Temp\RSP946D.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/5-04-02 .pdb" /debug /machine:I386 /out:"Debug/5-04-02 .exe" /pdbtype:sept 
+".\Debug\5-04-02 .obj"
+]
+Creating command line "link.exe @C:\Users\lenovo\AppData\Local\Temp\RSP946D.tmp"
+<h3>Output Window</h3>
+Compiling...
+5-04-02 .c
+D:\c++\新建文件夹\5-04-02 .c(11) : warning C4013: 'lcf' undefined; assuming extern returning int
+D:\c++\新建文件夹\5-04-02 .c(32) : warning C4716: 'hcf' : must return a value
+D:\c++\新建文件夹\5-04-02 .c(47) : warning C4716: 'lcd' : must return a value
+Linking...
+5-04-02 .obj : error LNK2001: unresolved external symbol _lcf
+Debug/5-04-02 .exe : fatal error LNK1120: 1 unresolved externals
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+5-04-02 .exe - 2 error(s), 3 warning(s)
+</pre>
+</body>
+</html>
