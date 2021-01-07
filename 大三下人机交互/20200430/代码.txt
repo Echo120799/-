@@ -1,0 +1,58 @@
+#include<iostream>
+#include<opencv\cv.h>
+#include<opencv2\core\core.hpp>
+#include<opencv2\highgui\highgui.hpp>
+
+
+using namespace cv;
+using namespace std;
+
+int main()
+{
+	//读入一张图像
+	Mat img;
+	img=imread("lena.jpg");	
+	if(!img.data)return -1;
+	namedWindow("原始图像", CV_WINDOW_AUTOSIZE);
+	imshow("原始图像", img);
+ 
+	//------------------原图预处理-----------------------------------
+	Mat GRAY,EdgeCanny,EdgeSobel;
+
+       //you code here --------------------------------------------------------------1
+       //对图像的通道数进行判断，如果通道数为3，则将图像转换为灰度图
+
+
+	
+	//------------------Canny边缘检测---------------------------
+	//you code here---------------------------------------------------------------2
+        //进行Canny边缘检测（阈值一为50，阈值二为150）
+
+
+	namedWindow("Canny", CV_WINDOW_AUTOSIZE);
+	imshow("Canny", EdgeCanny);
+
+
+
+	//------------------Sobel边缘检测----------------------------------
+	Mat absEdgeSobel,thEdgeSobel;
+
+        //you code here----------------------------------------------------------------3
+        //进行sobel边缘检测并显示结果，再进行阈值化处理
+
+
+
+
+	namedWindow("Sobel", CV_WINDOW_AUTOSIZE);
+	imshow("Sobel", absEdgeSobel);
+
+	namedWindow("SobelFinal", CV_WINDOW_AUTOSIZE);
+	imshow("SobelFinal", thEdgeSobel);
+
+
+
+	waitKey(0);	
+	destroyAllWindows();
+	return 0;
+}
+

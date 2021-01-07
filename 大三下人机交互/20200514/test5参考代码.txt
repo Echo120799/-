@@ -1,0 +1,125 @@
+#include "cv.h"
+#include "highgui.h" 
+#include <vector>
+using namespace std;
+using namespace cv;
+#ifdef _EiC
+#define WIN32
+#endif
+ 
+ 
+int main( int argc, char** argv )
+{
+	CvCapture* capture = 0;
+		
+	CascadeClassifier cascade ;		//分类器
+	CascadeClassifier cascadeMouth;
+
+	//////1.you code here////加载分类器
+	
+
+
+
+	
+	int nFaceNum = 0;
+	
+	if( !cascade.load(cascade_name) )		//加载分类器出错
+	{
+		fprintf( stderr, "ERROR: Could not load classifier cascade\n" );
+		fprintf( stderr,
+			"Usage: facedetect --cascade=\"<cascade_path>\" [filename|camera_index]\n" );
+		return -1;
+	}
+
+	if( !cascadeMouth.load(cascade_mouth_name) )		//加载分类器出错
+	{
+		fprintf( stderr, "ERROR: Could not load classifier cascade\n" );
+		fprintf( stderr,
+			"Usage: facedetect --cascade=\"<cascade_path>\" [filename|camera_index]\n" );
+		return -1;
+	}
+	
+
+	Mat img,gray;
+        //////2.you code here////读入测试图像img，转灰度图并保存到gray
+	
+	
+	 
+	 vector<Rect> faces;
+	 vector<Rect> mouth;
+	 
+	 
+	 //////3.you code here////!检测图像中的目标!人脸
+	 
+	 
+	 
+	nFaceNum =  faces.size();   
+	 static CvScalar colors[] =   //设置了一个颜色列表
+	{
+		cvScalar(0,0,255),
+		cvScalar(0,128,255),
+		cvScalar(0,255,255),
+		cvScalar(0,255,0),
+		cvScalar(255,128,0),
+		cvScalar(255,255,0),
+		cvScalar(255,0,0),
+		cvScalar(255,0,255)
+	};
+	 Rect r;
+	 int radius;
+	  CvPoint center,topleft,bottomright;
+		 for( int i = 0; i < nFaceNum; i++ )
+		 {
+			 r = faces[i];		//将faces数据从CvSeq转为CvRect 
+			
+			
+			////////4.you code here////确定topleft,bottomright两个点坐标，绘制人脸矩形框
+			
+
+
+
+
+
+			 //////检测嘴巴
+                         Rect mouthR;					 
+			 Mat roi;
+			 //////5.you code here//////设置嘴部感兴趣区域
+			
+
+
+
+
+	                 //////6.you code here////////!检测图像中的目标!//唇部
+			 
+
+
+		         int nMouth = mouth.size();	
+			 for(int j = 0; j < nMouth; j++ )
+			 {
+			 //////7.you code here//////确定圆心center和半径radius,绘制嘴部圆形区域
+			      r = mouth[j];	
+				
+
+
+
+
+
+			 }
+
+			 
+		 }
+
+		
+
+	 cvNamedWindow( "result", 1 );  //创建窗口
+	 imshow( "result", img );
+	 
+	
+	cvWaitKey();
+	
+	cvDestroyWindow("result");		//销毁窗口
+
+	return 0;
+}
+ 
+

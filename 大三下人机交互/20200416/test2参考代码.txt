@@ -1,0 +1,81 @@
+#include<iostream>
+#include<opencv\cv.h>
+#include<opencv2\core\core.hpp>
+#include<opencv2\highgui\highgui.hpp>
+
+
+using namespace cv;
+using namespace std;
+void skinExtract(const Mat &src, Mat &mask);  
+
+int main()
+{
+	//读入一张图像
+	Mat img,mask;
+	img=imread("hand.bmp");	
+	if(!img.data)return -1;
+	namedWindow("原始图像", CV_WINDOW_AUTOSIZE);
+	imshow("原始图像", img);
+ 
+	Mat imgDst = img.clone();
+    mask.create(imgDst.rows, imgDst.cols, CV_8UC1);  
+ 
+    //转换为YCrCb颜色空间，并显示  
+	//1.you code here/////////////////////////////////////////////////
+
+
+    //将多通道图像分离为多个单通道图像,存入 planes 
+	 //2.you code here/////////////////////////////////////////////////
+  
+  
+    //运用迭代器访问矩阵元素  
+    MatIterator_<uchar> it_Cb = planes[1].begin<uchar>(),  
+                        it_Cb_end = planes[1].end<uchar>();  
+    MatIterator_<uchar> it_Cr = planes[2].begin<uchar>();  
+    MatIterator_<uchar> it_skin = mask.begin<uchar>();  
+  
+
+    for( ; it_Cb != it_Cb_end; ++it_Cr, ++it_Cb, ++it_skin)  
+    {  
+	   //根据肤色阈值获得mask
+	   //人的皮肤颜色在YCbCr色度空间的分布范围:100<=Cb<=127, 138<=Cr<=170  
+	   //3.you code here/////////////////////////////////////////////////
+	   
+	  
+        if ()  
+            *it_skin = ;  
+        else  
+            *it_skin =;  
+    }   
+
+	//用模板和原图提取出感兴趣区域，并显示提取出的图像
+    //4.you code here/////////////////////////////////////////////////
+	
+	
+    namedWindow("提取出手部图像", CV_WINDOW_AUTOSIZE);
+	imshow("提取出手部图像", result); 
+
+	
+	//对mask后处理
+    //膨胀和腐蚀，膨胀可以填补凹洞（将裂缝桥接），腐蚀可以消除细的凸起（“斑点”噪声） 
+    //显示用处理后的mask，提取出的图像	
+    //5.you code here/////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	namedWindow("mask", CV_WINDOW_AUTOSIZE);
+	imshow("mask", mask);
+
+    namedWindow("后处理", CV_WINDOW_AUTOSIZE);
+	imshow("后处理", result); 
+
+
+	cvDestroyWindow("原始图像");
+	cvDestroyWindow("处理后图像");
+	cvDestroyWindow("后处理图像");
+	waitKey(0);
+	return 0;
+
+}
