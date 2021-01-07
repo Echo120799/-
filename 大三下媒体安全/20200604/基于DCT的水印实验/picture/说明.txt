@@ -1,0 +1,11 @@
+原始图像：lena.jpg
+
+水印图像：cuc.jpg
+
+嵌入水印的图像：Watermarking/DCTWm.bmp
+
+经过加噪声攻击后的图像存在文件夹Noise中
+
+经过JPEG压缩攻击后的图像存在文件夹JPEG中
+
+经过旋转攻击后的图像存在文件夹Rotation中

@@ -1,0 +1,25 @@
+凯撒密码的密钥空间有限，导致安全性极差，那么如何对它进行改进呢？
+一个简单的思路是：将明文字符进行任意替换，也就是“a”可以替换为26个字符，“b”在剩余25个字符中任意选择一个，依次类推。我们将这样的凯撒密码称之为“凯撒密码推广算法”。
+那么“凯撒密码推广算法”的密钥量是多少呢？
+答案是26！= 4.0329146×10^{26} （26的阶乘）。大家可以用Python来计算下26的阶乘。这是一个极为巨大的数字，比DES的密钥大10个数量级。试想下，如果计算机每秒运行1万次穷举攻击算法，那么完全运算完需要多长的时间呢？
+class ECaesarCipher( ):
+    def __init__(self, message=None):
+        self.message = message
+        self.cipherMessage=""
+        
+        #获取“a”到”z“的顺序字符表
+        pT=tuple(string.ascii_lowercase)
+        
+        #建立随机化的密文字符表
+        cT=[]
+        temp=range(0,26)
+        random.shuffle(temp)
+        for x in temp:
+            cT.append(pT[x])
+            
+        #建立密码本，即明文、密文对照表，这里使用了字典结构
+        self.keyTable={}
+        for x,y in zip(pT,cT):
+            self.keyTable[x]=y
+           
+算法建立ECaesarCipher类，支持大小写英文字母、空格作为明文字符，初始化时随机产生明密文对照表。这个明密文对照表也可以称为密码本，是必须要私密保存的密钥。

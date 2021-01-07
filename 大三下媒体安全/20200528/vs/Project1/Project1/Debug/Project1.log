@@ -1,0 +1,9 @@
+﻿  源.cpp
+d:\作业论文\大三下媒体安全\20200528\vs\project1\project1\源.cpp(63): warning C4018: “<”: 有符号/无符号不匹配
+d:\作业论文\大三下媒体安全\20200528\vs\project1\project1\源.cpp(74): warning C4551: 缺少参数列表的函数调用
+源.obj : error LNK2019: 无法解析的外部符号 _AES_set_encrypt_key，该符号在函数 "void __cdecl test1(void)" (?test1@@YAXXZ) 中被引用
+源.obj : error LNK2019: 无法解析的外部符号 _AES_set_decrypt_key，该符号在函数 "void __cdecl test1(void)" (?test1@@YAXXZ) 中被引用
+源.obj : error LNK2019: 无法解析的外部符号 _AES_cbc_encrypt，该符号在函数 "void __cdecl test1(void)" (?test1@@YAXXZ) 中被引用
+D:\openssl\OpenSSL-Win64\lib\libcrypto.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\openssl\OpenSSL-Win64\lib\libssl.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+D:\作业论文\大三下媒体安全\20200528\vs\Project1\Debug\Project1.exe : fatal error LNK1120: 3 个无法解析的外部命令

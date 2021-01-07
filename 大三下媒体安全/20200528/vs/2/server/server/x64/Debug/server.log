@@ -1,0 +1,4 @@
+﻿  源.cpp
+d:\作业论文\大三下媒体安全\20200528\vs\2\server\server\源.cpp(90): warning C4244: “=”: 从“SOCKET”转换到“int”，可能丢失数据
+d:\作业论文\大三下媒体安全\20200528\vs\2\server\server\源.cpp(122): warning C4244: “=”: 从“SOCKET”转换到“int”，可能丢失数据
+  server.vcxproj -> D:\作业论文\大三下媒体安全\20200528\vs\2\server\x64\Debug\server.exe
