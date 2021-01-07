@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+    }
+    .resource-list {
+        width: 100%;
+        margin: 20px auto;
+        height: 600px;
+        clear: left;
+    }
+    .resource-item {
+        width: 200px;
+        float: left;
+        min-height: 280px;
+        background-color: rgba(255,255,255,1);
+        transition: 3s all linear;
+        margin: 0px 5px 12px 5px;
+        box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.5);
+        -webkit-transition: All 1s ease;
+        -moz-transition: All 1s ease;
+        -o-transition: All 1s ease;
+    }
+    .resource-item:hover {
+      border: 1px solid #e6a360;
+      z-index: 10;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    #help ul
+    {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    #help ul li
+    {
+
+        padding-left: 14px;
+    }
+    #help
+    {
+        background: none;
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+
+    <nav class="navbar navbar-default"  style="width:70%;margin:auto;margin-top:40px;text-indent: 2rem;" id="help">
+        <p>二手交易市场退换货政策 退换货政策 依据《中华人民共和国产品质量法》、《中华人民共和国消费者权益保护法》等法律法规，本来生活网承诺对于已销售的存在质量问题的商品办理退换货服务</p>
+        <p> 退回商品时，请您确保：</p>
+        <ul>
+            <li>（1）商品的外包装完整且未损坏；</li>
+            <li> （2）商品未经使用； </li>
+            <li>（3）商品退换，如含因购买商品所得的赠品，请将赠品一同寄回。 </li>
+            <li>（4）如索要了发票，请将发票随商品一同寄回。如发票丢失，将无法办理退货。</li>
+            <li>（5）礼包或套装中的商品，不可以部分退货。因退货后，原礼包或套装中商品，将可能无法享受购买时的优惠。 </li>
+            <li>（6）如购买商品时，使用了优惠券的订单，发生退货时，将根据用户实付金额退还。发生换货时，如所换商品仍适用原抵用券的使用要求，则仍可抵扣所换商品金额。</li>
+            <li>（7）通常情况下，一张订单只能进行一次退换货操作，所以为了确保您的权益，请您考虑周全后与我们联系。 特别申明，以下情况不予办理退换货  </li>
+            <li>
+                <ul>
+                    <li>1、任何非坤味生鲜出售的商品；</li>
+                    <li>2、换货商品只能针对同一商品、同一价位的更换，不支持商品间换货及差价换货；</li>
+                    <li>3、任何已使用过的商品，有质量问题的除外； /li>
+                    <li>4、任何因客户原因导致超过保质期的商品； </li>
+                    <li>5、任何因客户使用或保管不当导致出现质量问题的商品;</li>
+                    <li>6、误用或不正确的使用方法所造成的食品质量问题，或撕毁、涂改标贴、防伪标记的商品不予退换货； </li>
+                    <li>7、对于货物数量缺失的情况，需当场验货，一旦签收，我们将不再退换；（待定）</li>
+                    <li>8、生鲜类商品不得以外观、个人口感等主观因素为由提出退换货；</li>
+                    <li>9、对于临期特卖商品，非质量问题不退不换； </li>
+                    <li>10、所有样品、派送品、赠品不予单独退货。 </li>
+
+                </ul>
+            </li>
+        </ul>
+        <p> 第三方配送订单签收及退货说明:商品外包装无破损，不可以拒收，必须先签收。如商品无质</p>
+    </nav>
+{% endblock %}

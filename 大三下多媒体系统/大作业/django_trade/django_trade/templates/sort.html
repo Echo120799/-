@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <style type="text/css">
+        .navbar .nav > li .dropdown-menu{margin:0;}
+        .navbar .nav > li:hover .dropdown-menu{display:block;}
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+            color: #f5f5f5;
+            background-color: #ff6500;
+        }
+        .resource-list {
+            width: 100%;
+            margin: 20px auto;
+            height: 600px;
+            clear: left;
+        }
+        .resource-item {
+            width: 200px;
+            float: left;
+            min-height: 310px;
+            background-color: rgba(255,255,255,1);
+            transition: 3s all linear;
+            margin: 0px 5px 12px 5px;
+            box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.5);
+            -webkit-transition: All 1s ease;
+            -moz-transition: All 1s ease;
+            -o-transition: All 1s ease;
+        }
+        .resource-item:hover {
+          border: 1px solid #e6a360;
+          z-index: 10;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div style="padding: 60px 560px 10px; width:100%" >
+        <form class="bs-example bs-example-form" role="form" method="post" action="" style="min-width: 300px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" placeholder="输入关键字"  style="border-top-left-radius: 17px;  border-bottom-left-radius: 17px; border-color:#F60" >
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"  style=" background-color:#F60">搜索</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            {% csrf_token %}
+        </form>
+    </div>
+    <nav class="navbar navbar-default"  style="background-color:#F60;height:30px;width:70%;margin:auto;margin-top:40px;">
+        <div style="float:left; width: 76%">
+            <ul class="nav  navbar-nav">
+                <li class="active" style="font-family:宋体; font-size:18px; color:white; margin-left:45px; line-height:200%"><B>&nbsp;       分类</B></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px" href="{% url 'sort' %}?type=1"><b style="color:#FFF">家电</b></a></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px " href="{% url 'sort' %}?type=2"><b style="color:#FFF">衣服</b></a></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px " href="{% url 'sort' %}?type=3"><b style="color:#FFF">百货</b></a></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px " href="{% url 'sort' %}?type=4"><b style="color:#FFF">文具</b></a></li>
+                <li style="margin-left:45px"><a style="line-height:3%;font-size:16px " href="{% url 'sort' %}?type=5"><b style="color:#FFF">其他</b></a></li>
+            </ul>
+            <div class="resource-list">
+                {% for item in goods %}
+                    <a class="resource-item" href="{% url 'goods-item' %}?id={{ item.id }}">
+                        <img src="{{ item.pic.url }}" alt="######" style="width: 200px;height: 200px">
+                        <div class="detail-item" style="padding: 1px">
+                            <span style="color: #F40;padding: 1px">¥</span>
+                            <strong style="color: #F40;font-weight: 700;padding: 1px">{{ item.price }}</strong>
+                            <span style="float: right; color: #737373;font-size: 12px;padding: 1px">{{ item.has_sale }}销量</span>
+                            <p style="padding: 5px 0px;font-size: 12px">{{ item.description }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="menu" style="background-color:#FFF;height:650px;width:24%;float:left;margin-top:30px">
+            <div><img  src="{% static 'images/tu4.gif' %}" width="80px" height="80px" style="margin-left:80px; margin-top:60px" >
+            <a style=" margin-left:90px; margin-top:20px; color:red"><b>Hi！你好</b></a></div>
+            <div class="btn-toolbar" role="toolbar" style="margin-left:25px; margin-top:20px"></div>
+            <textarea style="width: 100%" type="text" placeholder="说点什么吧?" id="saywhat"></textarea>
+            <div class="tabbable" style="font-size:9px" id="tabs-39579">
+                <button style="float: right" id="saybtn">发表</button>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                         <a href="#panel-300337" data-toggle="tab"><b>留言</b></a>
+                    </li>
+                </ul>
+            </div>
+            <ul style="list-style: none;padding: 6px" id="say-list">
+
+                {% for item in commends %}
+                    <li style="border-bottom: 1px dashed rgba(240,150,102,0.28);font-size: 12px" data="{{ item.id }}">
+                        <span><strong>{{ item.user }}</strong>({{ item.create_at }}):</span>
+                        <p style="height:auto;word-break:break-all; color: #23527c;">{{ item.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    $(function () {
+        $("#saybtn").click(function () {
+            var saycontent = $("#saywhat").val();
+            if (saycontent.trim() == "")
+            {
+                return;
+            }
+            var data={"des":saycontent};
+            $.post("{%url 'liuyan_save' %}", data, function(result) {
+                var err = result["code"];
+                if (err == -1) {
+                    alert(result["msg"]);
+                }
+                else {
+                    window.location.href="/";
+                }
+            });
+        });
+        setInterval(function () {
+            var first_li = $("#say-list>:first");
+            data = {"id":first_li.attr("data")};
+            $.get("{%url 'liuyan_save' %}", data, function(result) {
+                $("#say-list").fadeOut();
+                var html = "";
+                result = jQuery.parseJSON(result);
+                for(var i=0;i<result.length;i++)
+                {
+                    var temp_map = result[i]["fields"];
+                    var pk = result[i]["pk"];
+                    html += "<li style='border-bottom: 1px dashed rgba(240,150,102,0.28);font-size: 12px' data='"+pk+"'><span><strong>"+
+                        temp_map["user"]+"</strong>("+temp_map["create_at"]+"):</span><p style='height:auto;word-break:break-all; color: #23527c;'>"+
+                        temp_map["description"]+"</p></li>";
+                }
+                $("#say-list").html(html);
+                $("#say-list").fadeIn();
+            });
+        },10000);
+    });
+</script>
+{% endblock %}

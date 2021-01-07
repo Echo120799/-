@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+        background-color: #ff6500;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    body{overflow-x:hidden; background:#f2f0f5;}
+    #main-tab {
+        border: 1px solid #eaeaea;
+        background: #FFF;
+        font-size: 12px;
+        margin: auto;
+    }
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+    #main-tab td {
+        font-size: 14px;
+        line-height: 50px;
+    }
+.borderright{ border-right:1px solid #ebebeb}
+.borderbottom{ border-bottom:1px solid #ebebeb}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+    font-size:14px;
+}
+caption,th {
+	text-align:left;
+}
+td.fenye{ padding:10px 0 0 0; text-align:right;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="goods-list">
+        <table width="80%" border="0" cellspacing="0" cellpadding="0" id="main-tab">
+            <td align="center" valign="middle" class="borderright borderbottom">订单号</td>
+            <td align="center" valign="middle" class="borderright borderbottom">商品</td>
+            <td align="center" valign="middle" class="borderright borderbottom">价格</td>
+            <td align="center" valign="middle" class="borderright borderbottom">状态</td>
+            <td align="center" valign="middle" class="borderright borderbottom">数量</td>
+            <td align="center" valign="middle" class="borderright borderbottom">地址</td>
+            <td align="center" valign="middle" class="borderright borderbottom">联系人</td>
+            <td align="center" valign="middle" class="borderright borderbottom">购买时间</td>
+            {% for item in paginator.object_list %}
+            <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+                <td align="center" valign="middle" class="borderright borderbottom"><a href="{% url 'order_detail' %}?id={{ item.id }}">{{ item.order_id }}</a></td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.good_item.name }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.price }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.get_status_display }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.count }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.address }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.phone }}</td>
+                <td align="center" valign="middle" class="borderright borderbottom">{{ item.create_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width: 80%;margin: auto">
+         <ul class="pagination pagination-lg">
+            {% if paginator.has_previous %}
+                <li>
+                    <a href="{% url 'dingdan' %}?page={{ paginator.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
+            {% endif %}
+
+            {% for number in paginator.paginator.pager_num_range %}
+                {% if number == paginator.number %}
+                    <li class="active"><a href="{% url 'dingdan' %}?page={{ number }}">{{ number }}</a></li>
+                {% else %}
+                    <li><a href="{% url 'dingdan' %}?page={{ number }}" >{{ number }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if paginator.has_next %}
+                <li>
+                    <a href="{% url 'dingdan' %}?page={{ paginator.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled">
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+        });
+        $(function() {
+
+        });
+    </script>
+{% endblock %}
+

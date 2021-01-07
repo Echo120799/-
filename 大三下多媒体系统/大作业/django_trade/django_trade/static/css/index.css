@@ -1,0 +1,99 @@
+#index{
+     margin-top: -20px;
+    height: 90%;
+    width: 80%;
+    /*padding: 3%;
+
+     */
+    overflow: hidden;
+}
+
+div#index div.carousel-item > img{
+    width: 100%;
+    height: 500px;
+    border: 5px solid #423030
+}
+
+div#index div#match {
+    width: 100%;
+}
+div#match > img {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+div#index > div:nth-child(1){
+   overflow: hidden;
+}
+div#index > div:nth-child(2){
+    clear:both;
+    margin-top: 20px;
+    width: 60%;
+}
+
+div#index div.right{
+    float: right;
+    width: 30%;
+    padding-right: 20px ;
+}
+div#index div.cpu-list{
+    display: inline-block;
+}
+
+div#index div.cpu-list > div.list-group > a.list-group-item {
+    background-color: none;
+    display: block;
+        overflow: hidden;
+}
+div#index div.cpu-list > div.list-group > a.list-group-item:hover{
+    background-color: darkgrey;
+    color: white;
+    display: block;
+        overflow: hidden;
+}
+
+div#index div.rank-list{
+    margin-top: 20px;
+    display: block;
+    border: solid 1px #ddd;
+}
+div#index div.rank-list ol {
+    padding: 0px 20px;
+}
+div#index div.rank-list a {
+    color: #666;
+}
+div#index div.rank-list li{height:16px;line-height:16px;overflow:hidden;position:relative;padding:0 70px 0 30px;margin:0 0 10px 0;}
+div#index div.rank-list li em{background:url(/static/mun.gif) no-repeat;width:20px;height:16px;overflow:hidden;display:block;position:absolute;left:0;top:0;text-align:center;font-style:normal;color:#333;}
+div#index div.rank-list li em{background-position:0 -16px;}
+div#index div.rank-list li.top em{background-position:0 0;color:#fff;}
+div#index div.rank-list li .num{position:absolute;right:0;top:0;color:#777;}
+
+div#index div.rank-list > div {
+    width: 100%;
+    height: 50px;
+    background-color: #839c88;
+    margin-bottom: 20px;
+}
+div#index div.rank-list > div > span:nth-child(1)
+{
+    color: white;
+    font-size: 20px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+div#index div.rank-list > div > span:nth-child(2)
+{
+    color: white;
+    font-size: 20px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 20px;
+    float: right;
+}
+

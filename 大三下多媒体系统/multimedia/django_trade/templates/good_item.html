@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<style type="text/css">
+    .navbar .nav > li .dropdown-menu{margin:0;}
+    .navbar .nav > li:hover .dropdown-menu{display:block;}
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+        color: #f5f5f5;
+        background-color: #ff6500;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    div.good-item
+    {
+        width: 60%;
+        overflow: hidden;
+        margin: 80px auto;
+        border: solid 1px #ad6464;
+    }
+    div.good-item-right{
+        width: 50%;float: left;
+        margin-left: -6%;
+        padding: 10px;
+    }
+    div.good-item-right>p
+    {
+        margin-left: 6%;
+        min-height: 21px;
+        _height: 21px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        color: #3C3C3C;
+        margin-bottom: 20px;
+    }
+    div.good-item-right>p>span{
+        width: 120px;
+        display: inline-block;
+    }
+    div.good-item-right>p>button{
+        display: inline-block;
+        padding: .6em 1.1em;
+        font-size: 1.625rem;
+        text-decoration: none;
+        outline: none;
+        background-color: #FFD9BC;
+        color: #0f0f0f;
+        width: 46%;
+        margin-left: 2%;
+        margin-top: 10px;
+        border-radius: 3px;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
+        border: none;
+        -webkit-transition: -webkit-box-shadow .3s;
+        transition: box-shadow .3s;
+    }
+
+    div.good-item-right>p>button:hover
+    {
+        -webkit-box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        box-shadow: 0 0 0 2px #3b65f0, 0 0 0 4px #3b65f0;
+        -webkit-transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        -webkit-animation: gelatine 0.5s 1;
+        animation: gelatine 0.5s 1;
+    }
+    div.good-item-title{
+        background-color: #ad6464;
+        font-size: 18px;
+        padding: 10px 20px;
+        color: #fff;
+        font-weight: normal;
+        margin: auto;
+    }
+
+        #qrcode_show{
+            display: none;
+            width:320px; position:absolute;left:-250px; top:-250px; border:2px solid red;
+        }
+        .point{position:absolute;left:50%; top:50%;}
+
+</style>
+{% endblock %}
+{% block content %}
+    <div style="width: 90%;margin: auto">
+        <div class="good-item">
+            <div class="good-item-title">
+                提交订单
+            </div>
+            <div style="width: 50%;float: left;padding: 10px 10px 10px 10px">
+                <img src="{{ good_item.pic.url }}" style="width: 80%;">
+            </div>
+            <div class="good-item-right" style="">
+                <p>类别:{{ good_item.get_classification_display }}</p>
+                <p>名称:{{ good_item.name }}</p>
+                <p>详情:{{ good_item.description }}</p>
+                <p>销量:{{ good_item.has_sale }}</p>
+                <p>价格:<span style="color: #F40;padding: 1px">¥{{ good_item.price }}</span></p>
+                <p>库存:{{ good_item.counts }}</p>
+                <p>卖家手机号:{{ good_item.phone }}</p>
+                <div>
+                    <p><span >收货地址:</span></p>
+                    <select id="province" onchange="chooseProvince(this)">
+                    <option value="1">请选择省</option>
+                    </select>
+                    <select id="city" onchange="chooseCity(this)">
+                    <option value="2">请选择市</option>
+                    </select>
+                    <select id="area">
+                    <option value="3">请选择区</option>
+                    </select>
+                    <p><span >详细地址:</span><input type="text" name="adress"></input></p>
+                </div>
+                <p><span >买家手机号:</span><input type="text" name="phone_number"></input></p>
+                <p><span>购买数量：</span><input type="text" name="buy_count"></input></p>
+                <p><button style="color:#E5511D;" id="now_buy_btn">确定交易</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/city.js' %}" type="application/javascript"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+     //建立省市之间的连接
+    var provinceArray = new Array();
+    var cityArray = new Array();
+    var areaArray = new Array();
+    var provinceTag = document.getElementById("province");
+    var cityTag = document.getElementById("city");
+    var areaTag = document.getElementById("area");
+    var cityList;
+    var areaList;
+
+    for(var i=0; i<provinceList.length; i++){　　　　//provinceList.length为省数组的长度，下标从0开始，所以定义var i=0
+        var province = provinceList[i];　　　　　　　　　　//通过下标获取省列表（上面的列出列表）中的数据
+        var provinceName = province.name;　　　　　　　　//根据 province.name获取省的名字
+        console.log(provinceName);　　　　　　　　　　　　　//这步可以不需要，为了方便在网页打印台上显示出来，方便我们获取数据
+        provinceArray[i]=provinceName;　　　　　　　　　　　//将获得的省的名字注入到数组中去
+        provinceTag.add(new Option(provinceName,i));　　　　//通过Option方法将省的名字与下标i对应，取出来。然后通过add()方法，将每一个名字放到provinceTag中
+    }
+
+    function chooseProvince(th) {　　　　　　　　//通过方法的调用来实现省 市之间的二级联动，th是我们设置的一个参数，方便下面进行使用，可以理解为province的一个元素（名字）
+        var index = th.selectedIndex - 1;　　　　　　　　　　//此处selectedIndex的索引减1是因为我们在写<select><option>按钮时  “请选择省”  占了一个索引，所以需要减1才能对应
+        var provinceName = provinceArray[index];　　　　//通过数组下标获取数据（名字）
+
+        for (var n = 0; n < provinceList.length; n++) {　　　　//通过循环遍历列表数组
+            var provice = provinceList[n];　　　　　　　　　　　//通过列表下标获取数据
+            console.log(provice.name == provinceName);　　//控制台打印方便观看
+            if (provice.name == provinceName) {　　　　　　//开始建立连接，通过if判断，前提是要满足if中的条件
+                cityList = provice.cityList;　　　　　　　　　　　　//通过province的cityList获取城市列表
+                cityTag.innerHTML = "";　　　　　　　　　　　　　　//这个步骤很重要，分析语句，是吧里面的内容变为空，意思就是当你选择一个省时，后面会出现城市的数据，当你选择另外的省时会                                                                            出现相应的市的数据，如果不删除就会同时显示在一个选择框中，就不会是我们想要的结果
+                console.log(cityList);　　　　　　　　　　　　　　//控制台打印
+                for (var c = 0; c < cityList.length; c++) {　　　　　　//使用循环遍历城市数列
+                    var city = cityList[c];　　　　　　　　　　　　　　　//根据数列下标获取城市数据
+                    var cityName = city.name;　　　　　　　　　　　　//获取城市的名字
+                    cityArray[c] = cityName;　　　　　　　　　　　　　//将城市名称存入数组中
+                    cityTag.add(new Option(cityName, c));　　　　　　//使用Option()方法获取每一个索引对应的数据，然后使用add()方法一一存入到数组中去，这样就可以成功创建省市连接
+                }
+            }
+        }
+    }
+
+    function chooseCity(ci){
+        var index = ci.selectedIndex;
+        var cityName = cityArray[index];
+        for(var j=0;j<cityList.length;j++){
+            var city = cityList[j];
+            if(city.name == cityName){
+                var areaList = city.areaList;
+                areaTag.innerHTML = "";
+                for( var k=0;k<areaList.length;k++){
+                    var area = areaList[k];
+                    areaTag.add(new Option(area,k));
+                }
+            }
+        }
+    }
+
+    $(function() {
+        $("#now_buy_btn").click(function () {
+            var adress = $("input[name='adress']").val();
+            var provice = provinceTag.options[provinceTag.selectedIndex].text;
+            var city = cityTag.options[cityTag.selectedIndex].text;
+            var area = areaTag.options[areaTag.selectedIndex].text;
+            var phone_number = $("input[name='phone_number']").val();
+            var buy_count = $("input[name='buy_count']").val();
+            if(!$.isNumeric(phone_number) || phone_number.length!=11)
+            {
+                alert("请输入正确的联系人手机号");
+                return;
+            }
+             if(adress.length==0 || provice.length == 0 || city.length == 0 || area.length ==0)
+            {
+                alert("请输入正确的交易地址");
+                return;
+            }
+            adress = provice + city + area + adress;
+            if (!$.isNumeric(phone_number))
+            {
+                alert("购买数量必须为整数");
+            }
+            if( buy_count > {{ good_item.counts }})
+            {
+                alert("购买数量不能超过库存量");
+                return;
+            }
+            var data = {"good_id":{{ good_item.id }}, "adress":adress, "phone_number":phone_number, "buy_count":buy_count, "type":1};
+            $.post("{% url 'goods-item' %}",data,function(result){
+                var err = result["code"];
+                alert(result["msg"]);
+                window.location.href='/';
+            });
+        });
+
+    });
+</script>
+{% endblock %}
+
