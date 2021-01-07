@@ -1,0 +1,13 @@
+
+<window duration="30">
+<!-- 定义RealText播放长度为30秒--> 
+<!-- 指定文本在25秒时消失-->
+<time end="25"/>
+<!-- 分别指定对应的文本在第2、5、10、15和20秒出现-->
+<time begin="2" /> 2012-5-13<br/>
+<time begin="5" />This text starts to display at 5 seconds.<br/>
+<time begin="10" />A new line appears each additional 5 seconds.<br/>
+<time begin="15"/>But all this text disappears <br/>
+<time begin="20"/>at 25 seconds into the clip.<br/>
+
+</window>

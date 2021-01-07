@@ -1,0 +1,12 @@
+<window width="160" height="300" duration="492" bgcolor="black">
+<font size=+2 COLOR=white charset="gb2312">
+<seq>
+<time begin="7"/><clear/> <b><font size=+2>2.3.2.1 定义</font></b>
+<time begin="8"/><clear/> <font size=+3>本节内容</font>
+<time begin="9"/> <clear/>传递函数的定义
+<time begin="10"/> <clear/> 传递函数的求取方法
+</seq>
+</font>
+</widnow>
+
+

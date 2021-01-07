@@ -1,0 +1,10 @@
+<window  width="240" height="80" duration="15">
+<font charset="gb2312"/>
+<!--  charset设置字符集，"gb2312" 字符集能显示中文字符-->
+<time begin="0"/> 2012-5-13
+<time begin="3"/><clear/>媒体网络
+<time begin="6"/><clear/>I love RealMedia,
+<time begin="9"/><clear/>for it's powerful functions.
+<time begin="12"/><clear/>Do you love it?
+<!-- 在<time/>后加上<clear/>，用一行新的文本替代原有的文本--> 
+</window>

@@ -1,0 +1,28 @@
+<window width="640" height="480" bgcolor="#990000" link="#ff9933" underline_hyperlinks="true" type="scrollingnews" duration="15">
+<!-- 定义窗口类型、大小、颜色、超链接、播放时间等-->
+<font color="white" size="10">
+<!-- 定义字体颜色和大小--> 
+<center>textlink sample</center>
+<!-- 定义标题居中-->
+<time begin="2"/>	
+	<a href="command:pause()" 
+target="_player">pause</a> current clip<br/>
+	<!-- 单击pause时播放暂停-->
+	<a href="command:play()"
+target="_player">play</a> current clip<br/>
+		<!-- 单击play时继续播放-->
+    	<a href="command:seek(0)" target="_player">seek</a> current clip<br/>
+		<!-- 单击seek时重新播放-->
+    	<a href="mailto:jk.06@163.com">Send mail </a><br/>
+		<!-- 单击Send mail时发送E-mail-->
+    	<a href="http://www.cuc.edu.cn/" target="_browser">Open Web</a> <br/>
+
+		<!-- 单击Open Web，在RealOne Player浏览器中打开网站-->
+    	<a href="video.rm" target="_player">Open Media</a><br/>
+		<!-- 单击Open Media，在当前RealOne Player中播放video.rm文件-->
+		
+		
+		
+
+</font>
+</window>

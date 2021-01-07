@@ -1,0 +1,16 @@
+<window width="480" height="420" duration="492" bgcolor="transparent">
+<font COLOR=black charset="gb2312">
+<br/><b><font size=+3>7秒后左侧视频下窗口出现主标题</font></b>
+<p/><time begin="1"/><b><font size=+2>2.3.2.1 定义</font></b>
+<p/><time begin="2"/><font COLOR=red>文字定义:</font> 
+<br/><time begin="3"/>零初始条件下系统输出信号的拉氏变换与输入信号的拉氏变换之比
+<p/><time begin="4"/><font COLOR=red>数学式定义: </font>
+<br/><time begin="5"/>设输入为r(t),输出为 y(t) ,则系统的传递函数为
+<p/><time begin="6"/><b><font size=+2>2.3.2.2 传递函数的求取方法</font></b>
+<p/><time begin="7"/>1) 对微分方程进行拉氏变换(零初始条件)
+<br/><time begin="8"/>2) 对脉冲响应进行拉氏变换
+<br/><time begin="9"/>3) 实验建模方法 (详见2.5 节)
+</font>
+</widnow>
+
+

@@ -1,0 +1,17 @@
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" xmlns:rn="http://features.real.com/2001/SMIL20/Extensions" >
+<head> 
+  <layout> 
+    <root-layout width="352" height="288" backgroundColor="black"/> 
+    <region id="video_region" width="100%" height="100%" fit="meet"> 
+      <region id="video_region_logo" left="0" top="0" height="66" width="66"/> 
+    </region> 
+  </layout> 
+</head> 
+<body> 
+  <par> 
+    <img src="flag.png" region="video_region_logo" fill="hold"/> 
+    
+    <video src="1.rm" region="video_region" regPoint="center" regAlign="center" dur="6" fill="clear"/> 
+  </par> 
+</body> 
+</smil>

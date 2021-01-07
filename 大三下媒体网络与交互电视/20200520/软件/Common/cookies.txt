@@ -1,0 +1,5 @@
+# Helix Cookie File
+# http://www.ietf.org/rfc/rfc2109.txt
+# This is a generated file!  Do not edit.
+
+127.0.0.1	TRUE	/	FALSE	2145887999	cbid	hfjgcmhlhggfeihheoroluqqlrjrptcuhfhgkipiigffjlploskrkpmtkofsltlpifegchcl

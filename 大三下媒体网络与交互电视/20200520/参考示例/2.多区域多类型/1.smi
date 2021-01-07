@@ -1,0 +1,30 @@
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" xmlns:rn="http://features.real.com/2001/SMIL20/Extensions"> 
+<head>
+    <layout>
+      <region id="Video" width="160" height="120" fit="meet" background-color="black"/>
+<!--  以下注释部分为bg和text两个区域的z轴层叠关系，通过z-index值区分层级，二者定位都相对整个窗口-->
+ <!--   
+
+<region id="bg" left="160" width="480" height="500" fit="meet" z-index="0"/>
+<region id="right" top="30" left="160" width="480" height="420" z-index="1"/>
+
+-->
+<!--  以下部分与上面的功能类似，但是采用bg和text两个区域嵌套的关系，注意region标签结束位置，内嵌region定位相对于外层region-->
+
+<region id="bg" left="160" width="480" height="500" fit="meet">
+      <region id="right" top="30" left="0" width="480" height="420"/>
+</region>
+
+      <region id="left" top="120" width="160" height="300" fit="meet"/>
+    </layout>
+</head>
+<body>
+    <par>
+<video src="1.rm" dur="492"  region="Video" fill="freeze" fit="meet"/>
+<img src="1.jpg" dur="492" region="bg" fill="freeze" fit="meet"/>
+<textstream src="right.rt" dur="492" region="right" fill="freeze" fit="meet"/>
+<textstream src="left.rt" dur="492" region="left"  fill="freeze" fit="meet"/>
+   </par>              
+</body>
+</smil>
+

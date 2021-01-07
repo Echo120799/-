@@ -1,0 +1,17 @@
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" xmlns:rn="http://features.real.com/2001/SMIL20/Extensions"> 
+<head>
+    <layout>
+      <region id="Video" width="1200" height="1000" fit="meet" background-color="black"/>
+    <region id="bg"  left="0" width="1200" height="900" top="0" fit="meet">
+   <region id="left"  left="0" top="850" width="1200" height="100" fit="meet"/>
+    </region>
+    </layout>
+</head>
+<body>
+    <par>
+<video src="story.smi" dur="75"  region="bg" fill="freeze" fit="meet"/>
+<textstream src="left.rt" dur="75" region="left"  fill="freeze" fit="meet"/>
+   </par>              
+</body>
+</smil>
+

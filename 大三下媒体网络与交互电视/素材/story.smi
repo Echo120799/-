@@ -1,0 +1,37 @@
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" xmlns:rn="http://features.real.com/2001/SMIL20/Extensions" >
+<head> 
+<transition id="fade1" type="fade" subtype="fadeFromColor" fadeColor="white" dur="1"/>
+<transition id="fade2" type="fade" subtype="fadeToColor" fadeColor="white" dur="1"/>
+ <layout> 
+    <root-layout width="1200" height="900" backgroundColor="black"/> 
+    <region id="picture" width="1200" height="900" fit="meet"> 
+    </region> 
+  </layout> 
+</head> 
+<body> 
+<par>
+       <audio src="story.ra" dur="75"/>
+<seq>
+      
+     <img src="0.jpg" region="picture" transOut="fade2" dur="3" fill="transition"/>
+     
+    <img src="1.jpg" region="picture" transIn="fade1" transOut="fade2" dur="12" fill="transition"/> 
+    
+    <img src="3.jpg" region="picture" transIn="fade1" transOut="fade2" dur="4" fill="transition"/>
+    
+    <img src="4.jpg" region="picture" transIn="fade1" transOut="fade2" dur="7" fill="transition"/> 
+  
+    <img src="5.jpg" region="picture" transIn="fade1" transOut="fade2" dur="5" fill="transition"/> 
+  
+    <img src="6.jpg" region="picture" transIn="fade1" transOut="fade2" dur="5" fill="transition"/> 
+     
+    <img src="7.8.jpg" region="picture" transIn="fade1" transOut="fade2" dur="8" fill="transition"/> 
+
+    <img src="9.jpg" region="picture" transIn="fade1" transOut="fade2" dur="6" fill="transition"/> 
+    <img src="10.jpg" region="picture" transIn="fade1" transOut="fade2" dur="5" fill="transition"/> 
+    <img src="11.12.jpg" region="picture" transIn="fade1" transOut="fade2" dur="8" fill="transition"/> 
+    <img src="13.jpg" region="picture" transIn="fade1" transOut="fade2" dur="8" fill="transition"/> 
+</seq>
+</par>
+</body>
+</smil>

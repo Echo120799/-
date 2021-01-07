@@ -1,0 +1,13 @@
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language" xmlns:rn="http://features.real.com/2001/SMIL20/Extensions" >
+<head> 
+<transition id="fade1" type="fade" subtype="fadeFromColor" fadeColor="red" dur="2"/>
+<transition id="fade2" type="fade" subtype="fadeToColor" fadeColor="blue" dur="2"/>
+</head> 
+<body> 
+<seq>
+    <img src="3.jpg" transIn="fade1" transOut="fade2" dur="6" fill="transition"/> 
+    <img src="4.jpg" transIn="fade1" transOut="fade2" dur="6" fill="transition"/> 
+
+</seq>
+</body> 
+</smil>

@@ -1,0 +1,23 @@
+<window height="220" width="480" duration="75" bgcolor="black">
+<font charset="gb2312" color="white" size="20">
+<time begin="1"/><clear/><pos x="210" y="180"/>拇指姑娘
+<!-- 每隔几秒钟用一行新的文本替代原有的文本，实现字幕功能。-->
+<time begin="3"/><clear/><pos x="80" y="180"/>花盆里的花开了,从花里出来一个美丽的小姑娘。
+<time begin="8"/><clear/><pos x="80" y="180"/>小姑娘十分漂亮，既会唱歌，又会跳舞，惹人疼爱。
+<time begin="14"/><clear/><pos x="80" y="180"/>因为她只有拇指那么大，人们把她叫做拇指姑娘。
+<time begin="20"/><clear/><pos x="50" y="180"/>晚上，一只大蛤蟆爬进屋，把正在睡觉的拇指姑娘叼走了。
+<time begin="25"/><clear/><pos x="65" y="180"/>大蛤蟆说：“拇指姑娘，你是我的玩具，对吗？”
+<time begin="30"/><clear/><pos x="80" y="180"/>拇指姑娘哭着说：“不是，不是，我不喜欢你！”
+<time begin="35"/><clear/><pos x="90" y="180"/>一片绿叶当小船，拇指姑娘悄悄地逃走了。
+<time begin="40"/><clear/><pos x="120" y="180"/>她用力划船，想逃的远远的。
+<time begin="43"/><clear/><pos x="50" y="180"/>可怜的拇指姑娘又被老鼠捉住了，老鼠要把她当点心吃
+<time begin="50"/><clear/><pos x="65" y="180"/>听见哭声，一群小鸟飞来，救走了拇指姑娘。
+<time begin="55"/><clear/><pos x="90" y="180"/>他们飞过森林，飞过高山，飞过大海......
+<time begin="59"/><clear/><pos x="80" y="180"/>小鸟带着拇指姑娘来到了一个开满鲜花的小人国。
+<time begin="63"/><clear/><pos x="75" y="180"/>在这个美丽的小人国里，拇指姑娘生活的非常幸福。
+<time begin="70"/><clear/><pos x="215" y="10"/>小组成员
+<time begin="70.5"/><pos x="220" y="50"/>卢金雨
+<time begin="71"/><pos x="220" y="80"/>朱漪雯
+<time begin="71.5"/><pos x="220" y="110"/>王雪岩
+</window>
+
