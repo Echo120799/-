@@ -1,0 +1,17 @@
+（1）包含头文件，导入LIB库
+在源程序中包含以下三个头文件并加入LIB：
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/bio.h>
+#pragma comment(lib, "libeay32.lib")
+#pragma comment(lib, "ssleay32.lib")
+（2）利用openssl提供的AES，实现对文件加密
+	AES加密算法是分组算法。典型参数的AES的基本操作是把128比特明文在128比特密钥指引下加密成128比特密文。
+		AES（IN，KEY）= OUT
+	OpenSSL中关于AES的函数名和参数接口和DES的雷同。相关函数名如下(参数略)。
+int AES_set_encrypt_key();
+int AES_set_decrypt_key();
+void AES_ecb_encrypt();
+void AES_cbc_encrypt();
+void AES_cfb128_encrypt();
+void AES_ofb128_encrypt();

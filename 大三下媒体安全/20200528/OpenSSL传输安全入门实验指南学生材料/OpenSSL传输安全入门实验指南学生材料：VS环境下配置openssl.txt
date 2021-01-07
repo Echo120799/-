@@ -1,0 +1,2 @@
+打开VS－>Tools->Options->projects and solutions->VC++ Directories(VC6路径VC－>Tools->Options->Directories），在Include files中增加C:\openssl\inc32目录，假设openssl安装目录为C:\openssl，下同。
+在Libray files中增加C:\openssl\out32dll。

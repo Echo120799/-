@@ -1,0 +1,6 @@
+openssl开发手册.chm：
+包含了较为详细的openssl使用教程，对openssl的各基础功能都有介绍，也包含了SSL实现的相关教程
+
+1.1.1版本官方文档：
+https://www.openssl.org/docs/man1.1.1/
+里面包含了各函数的说明等内容。

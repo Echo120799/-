@@ -1,0 +1,18 @@
+方法一：
+Win64OpenSSL-1_1_1g.exe：64位windows版的专用安装文件，不借助activePerl就能安装，测试配置好VS后运行库中一些函数都没有问题
+
+方法二：
+基于openssl-1.1.1g.tar.gz官网提供的版本安装，可供Windows、LInux、Mac OS等系统使用，不同系统的具体安装方法可在解压后查看install文件。实验提供了windows系统下安装官方包必要的工具ActivePerl5的安装包。
+示例步骤如下：
+1）安装ActivePerl-5.16.3.1603-MSWin32-x86-296746(1).msi
+2）将openssl-0.9.8k安装到C:\openssl目录，步骤如下：
+（1）解压下载的openssl-0.9.8k 到C:\openssl-0.9.8k 目录下
+（2）在打开命令行窗口，并转到C:\Program Files\Microsoft Visual Studio\VC98\Bin 目录下，接着输入：vcvars32
+【注意1：openssl必须使用一种c++编译器，具体参考openssl文件夹下的install说明文件】
+【注意2：用命令行path或者系统属性的环境变量查看一下是否已经成功设置vc的环境变量，如果没有，请手动添加vc的bin目录到path中】
+（3）然后转到C:\openssl-0.9.8k下，然后输入：
+ perl Configure VC-WIN32 --prefix=c:/openssl
+（4） ms\do_ms
+（5） nmake -f ms\ntdll.mak
+（6） nmake -f ms\ntdll.mak test
+（7） nmake -f ms\ntdll.mak install
